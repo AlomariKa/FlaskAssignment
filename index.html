@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Employee Management</h1>
+
+        <!-- Form to Create Employee -->
+        <div class="card mt-3">
+            <div class="card-header">Create Employee</div>
+            <div class="card-body">
+                <form id="create-form">
+                    <input class="form-control mt-2" type="text" id="firstname" placeholder="First Name" required>
+                    <input class="form-control mt-2" type="text" id="lastname" placeholder="Last Name" required>
+                    <input class="form-control mt-2" type="number" id="age" placeholder="Age" required>
+                    <input class="form-control mt-2" type="number" id="salary" placeholder="Salary" required>
+                    <button class="btn btn-primary mt-3" type="button" onclick="createEmployee()">Create</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Section to Get All Employees -->
+        <div class="card mt-3">
+            <div class="card-header">Get All Employees</div>
+            <div class="card-body">
+                <button class="btn btn-success" onclick="getEmployees()">Fetch Employees</button>
+                <ul id="employees-list" class="mt-3"></ul>
+            </div>
+        </div>
+
+        <!-- Section to Update Employee -->
+        <div class="card mt-3">
+            <div class="card-header">Update Employee</div>
+            <div class="card-body">
+                <input class="form-control mt-2" type="number" id="update-id" placeholder="Employee ID" required>
+                <input class="form-control mt-2" type="text" id="update-firstname" placeholder="First Name">
+                <input class="form-control mt-2" type="text" id="update-lastname" placeholder="Last Name">
+                <input class="form-control mt-2" type="number" id="update-age" placeholder="Age">
+                <input class="form-control mt-2" type="number" id="update-salary" placeholder="Salary">
+                <button class="btn btn-warning mt-3" onclick="updateEmployee()">Update</button>
+            </div>
+        </div>
+
+        <!-- Section to Delete Employee -->
+        <div class="card mt-3">
+            <div class="card-header">Delete Employee</div>
+            <div class="card-body">
+                <input class="form-control mt-2" type="number" id="delete-id" placeholder="Employee ID" required>
+                <button class="btn btn-danger mt-3" onclick="deleteEmployee()">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" defer></script>
+</body>
+</html>
