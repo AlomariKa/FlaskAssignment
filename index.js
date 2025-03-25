@@ -36,6 +36,23 @@ function getEmployees() {
         .catch((error) => console.error("Error:", error));
 }
 
+function getEmployee() {
+    const id = document.getElementById("get-id").value;
+    fetch(`${apiBase}/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.id == undefined){
+            alert(data);
+        }else{
+            const employee = document.getElementById("employee")
+            employee.innerHTML="";
+            employee.textContent = `ID: ${data.id}, Name: ${data.firstname} ${data.lastname}, Age: ${data.age}, Salary: ${data.salary}`;
+            }
+    })
+     .catch((error) => console.error("Error:", error));
+
+}
+
 function updateEmployee() {
     const id = document.getElementById("update-id").value;
     const data = {

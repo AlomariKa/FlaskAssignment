@@ -37,9 +37,8 @@ def get_employees():
 @app.route('/employees/<int:id>',methods=["Get"])
 def get_employee(id):
     employee =Employees.query.get(id)
-
     if employee is None:
-        return jsonify({"error":"No employee Found"})
+        return jsonify("No Employee Found")
     return jsonify(employee.to_dict())
 
 @app.route('/employees/', methods=["POST"])
@@ -61,7 +60,7 @@ def create_employee():
 def update_employee(id):
     employee = Employees.query.get(id)
     if employee is None:
-        return jsonify({"error": "No employee found"}), 404
+        return jsonify("No employee found"), 404
 
     data = request.get_json()
     # data.get("key", default_value)
@@ -78,7 +77,7 @@ def update_employee(id):
 def delete_employee(id):
     employee = Employees.query.get(id)
     if employee is None:
-        return jsonify({"error": "No employee found"}), 404
+        return jsonify("No employee found"), 404
 
     db.session.delete(employee)
     db.session.commit()
