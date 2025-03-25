@@ -45,7 +45,7 @@ def get_employee(id):
 @app.route('/employees/', methods=["POST"])
 def create_employee():
     data = request.get_json()
-    print(data)
+    # parses the JSON data from the request body and converts it into a Python data structure
     new_employee = Employees(
         firstname=data["firstname"],
         lastname=data["lastname"],
@@ -54,7 +54,8 @@ def create_employee():
     )
     db.session.add(new_employee)
     db.session.commit()
-    return jsonify(new_employee.to_dict()), 201
+    new_employee_dict=new_employee.to_dict()
+    return jsonify(new_employee_dict['firstname']), 201 # JSON response
 
 @app.route('/employees/<int:id>', methods=["PUT"])
 def update_employee(id):
@@ -70,7 +71,8 @@ def update_employee(id):
     employee.salary = data.get("salary", employee.salary)
 
     db.session.commit()
-    return jsonify(employee.to_dict())
+    employee_dict=employee.to_dict()
+    return jsonify(employee_dict['firstname'])
 
 @app.route('/employees/<int:id>', methods=["DELETE"])
 def delete_employee(id):
@@ -80,7 +82,9 @@ def delete_employee(id):
 
     db.session.delete(employee)
     db.session.commit()
-    return jsonify({"message": "Employee deleted"}), 200
+    employee_dict=employee.to_dict()
+
+    return jsonify(employee_dict['firstname']), 200
 
 if __name__ == "__main__":
     app.run(debug=True)

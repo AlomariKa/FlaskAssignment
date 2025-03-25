@@ -16,7 +16,8 @@ function createEmployee() {
         body: JSON.stringify(data),
     })
         .then((response) => response.json())
-        .then((data) => alert("Employee Created: " + JSON.stringify(data)))
+        .then((data) => alert("Employee Created: " + data))
+
         .catch((error) => console.error("Error:", error));
 }
 
@@ -52,7 +53,7 @@ function updateEmployee() {
         body: JSON.stringify(data),
     })
         .then((response) => response.json())
-        .then((data) => alert("Employee Updated: " + JSON.stringify(data)))
+        .then((data) => alert("Employee Updated: " + data))
         .catch((error) => console.error("Error:", error));
 }
 
@@ -63,6 +64,6 @@ function deleteEmployee() {
         method: "DELETE",
     })
         .then((response) => response.json())
-        .then((data) => alert("Employee Deleted: " + JSON.stringify(data)))
+        .then((data) => alert("Employee Deleted: " + data))
         .catch((error) => console.error("Error:", error));
 }
